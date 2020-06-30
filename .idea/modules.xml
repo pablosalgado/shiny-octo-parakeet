@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/shiny-octo-parakeet.iml" filepath="$PROJECT_DIR$/.idea/shiny-octo-parakeet.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/shiny-octo-parakeet/.idea/shiny-octo-parakeet.iml" filepath="$USER_HOME$/PycharmProjects/shiny-octo-parakeet/.idea/shiny-octo-parakeet.iml" />
     </modules>
   </component>
 </project>
