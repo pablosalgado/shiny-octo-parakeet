@@ -1,3 +1,5 @@
+import os
+
 import PIL
 import imutils.paths
 import numpy as np
@@ -7,17 +9,20 @@ import skimage.util
 
 paths = sorted(
     filter(
-        lambda p: 'obstacle.png' in p,
-        [p for p in imutils.paths.list_images('/home/pablo/iungo_platform/app/apps/static/skins')]
+        lambda p: p.split(os.path.sep)[-1] == 'goal.png',
+        [i for i in imutils.paths.list_images('/home/pablo/iungo_platform/app/apps/static/skins')]
     )
 )
 
 for p in paths:
-    print(p)
-
     # All images have 4 channels. Each pixel in channel 4 is either 225 or 0, so
     # the background is basically the ground-truth or mask for the image.
     image = skimage.io.imread(p)
+
+    if image.shape <= (50, 50, 4):
+        continue
+
+    print(f'Processing: {p}')
 
     # So we extract the best polygon that encircles the image from channel 4.
     [rows, columns] = np.where(
